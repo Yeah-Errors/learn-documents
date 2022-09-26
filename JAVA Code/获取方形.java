@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class printquiz {
+public class 获取方形{
     public static void main(String[] args){
         Scanner getint = new Scanner(System.in);
         System.out.print("请输入长：");
