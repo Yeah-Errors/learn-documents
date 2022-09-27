@@ -21,7 +21,7 @@ public class 加减法测验 {
             }
             time2=System.currentTimeMillis();
             titletime=(time2-time1)/1000;
-            System.out.printf("您的总成绩为%d，总用时%d s",score,titletime);
+            System.out.printf("您的总成绩为%d ，总用时%d s",score,titletime);
         }
     }
 }
