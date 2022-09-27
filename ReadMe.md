@@ -2,7 +2,7 @@
 
 **[官方文档](https://docs.oracle.com/javase/18)**
 
-### 1. 使用前需声明
+### 1. 使用对话框前需声明
 
 ```java
 import javax.swing.JOptionPane;
@@ -33,4 +33,10 @@ showConfirmDialog(Component parentComponent,Object message,String title,int opti
      c++;
 }
 //其中a,b在循坏之外无法使用，但c可以正常使用
+```
+
+### 5.获取当前时间戳
+
+```java
+long time = System.currentTimeMillis();//后续补充其他方法
 ```
