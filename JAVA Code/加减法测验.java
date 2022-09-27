@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class text {
+public class 加减法测验 {
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         System.out.print("输入出题数；");
