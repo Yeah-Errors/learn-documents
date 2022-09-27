@@ -25,7 +25,7 @@ JOptionPane.showMessageDialog(null,String,Title,int);
 ```java
 showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon)
 ```
- ##### for 循环内声明的变量循环外不可用！！
+ ### 5.for 循环内声明的变量循环外不可用！！
  ```java
  int c=0;
  for (int i=0;i<=10;i++){
