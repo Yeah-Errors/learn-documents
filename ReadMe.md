@@ -40,3 +40,11 @@ showConfirmDialog(Component parentComponent,Object message,String title,int opti
 ```java
 long time = System.currentTimeMillis();//后续补充其他方法
 ```
+
+### 7.获取用户输入的字符串
+```java
+import java.util.Scanner;//使用前需要声明；
+Scanner input = new Scanner(System.in);
+String str =input.nextLine();
+System.out.print(str);
+```
