@@ -32,10 +32,10 @@ showConfirmDialog(Component parentComponent,Object message,String title,int opti
      int b=0;
      c++;
 }
-//其中a,b在循坏之外无法使用，但c可以正常使用
+//其中i,b在循坏之外无法使用，但c可以正常使用
 ```
 
-### 5.获取当前时间戳
+### 6.获取当前时间戳
 
 ```java
 long time = System.currentTimeMillis();//后续补充其他方法
