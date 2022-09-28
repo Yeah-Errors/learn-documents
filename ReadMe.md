@@ -45,6 +45,9 @@ long time = System.currentTimeMillis();//后续补充其他方法
 ```java
 import java.util.Scanner;//使用前需要声明；
 Scanner input = new Scanner(System.in);
-String str =input.nextLine();
-System.out.print(str);
+String str1 =input.next();//next()读取到字符结束后直接停止
+String str2 =input.nextLine();//nextLine()读取下一整行;
+System.out.print(str1+str2);
 ```
+
+
