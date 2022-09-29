@@ -1,6 +1,6 @@
 # Java学习心得
 
-**[官方文档](https://docs.oracle.com/javase/18)**
+**[java官方开发文档](https://docs.oracle.com/javase/18)**
 
 ### 1. 使用对话框前需声明
 
@@ -79,3 +79,5 @@ System.out.print(x);
 /edit //打开编辑面板
 
 ```
+
+[有关Jshell的官方文档](httpps://docs.oracle.com/en/java/javase/jshell)
