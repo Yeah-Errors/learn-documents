@@ -38,7 +38,8 @@ showConfirmDialog(Component parentComponent,Object message,String title,int opti
 ### 6.获取当前时间戳
 
 ```java
-long time = System.currentTimeMillis();//后续补充其他方法
+long time = System.currentTimeMillis();//获取毫秒级时间戳
+long time = System.nanoTime();//获得纳秒级时间戳
 ```
 
 ### 7.获取用户输入的字符串
@@ -50,4 +51,31 @@ String str2 =input.nextLine();//nextLine()读取下一整行;
 System.out.print(str1+str2);
 ```
 
+### 8.有关自增自减（即i++,++i等）的说明
 
+| 操作符 |   名称   |              描述               |      示例（假设 i =1）      |
+| :----: | :------: | :-----------------------------: | :-------------------------: |
+| ++ var | 前置自增 |  将var加1，语句中使用新的var值  | int j = ++i;  // j为2，i为2 |
+| var ++ | 后置自增 | 将var加1，语句中使用原来的var值 | int  j = i++; //j为1 ，i为2 |
+
+
+实际上是遵循运算顺序的体现
+
+### 9.有关JShell
+
+JShell是java9引入的命令行互交式工具 可用cdm输入指令启动
+```shell
+jshell
+```
+相关指令
+```shell
+//一些单句的java语法例如
+int x=5;
+ 
+System.out.print(x);
+
+/vers //此指令可列出所有以声明的变量
+
+/edit //打开编辑面板
+
+```
