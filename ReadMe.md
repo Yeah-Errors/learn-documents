@@ -64,11 +64,11 @@ System.out.print(str1+str2);
 ### 9.有关JShell
 
 JShell是java9引入的命令行互交式工具 可用cdm输入指令启动
-```shell
+```sh
 jshell
 ```
 相关指令
-```shell
+```java
 //一些单句的java语法例如
 int x=5;
  
