@@ -45,6 +45,8 @@ long time = System.nanoTime();//获得纳秒级时间戳
 ### 7.获取用户输入的字符串
 ```java
 import java.util.Scanner;//使用前需要声明；
+
+java.util.Scanner weishengming = new java.util.Scanner(System.in);//也可以将Scanner替换为java.util.Scanner
 Scanner input = new Scanner(System.in);
 String str1 =input.next();//next()读取到字符结束后直接停止
 String str2 =input.nextLine();//nextLine()读取下一整行;
@@ -81,3 +83,5 @@ System.out.print(x);
 ```
 
 [有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)
+
+
