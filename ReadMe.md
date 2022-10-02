@@ -5,7 +5,7 @@
 ### 1. 对话框
 
 ```java
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;//使用前需声明；
 JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
 JOptionPane.showMessageDialog(null,String,Title,int);//消息对话框；
 showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；
@@ -67,9 +67,11 @@ System.out.print(x);
 
 ```
 
-[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)
+**[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)**
 
 ### 7.有关Math函数
+
+**[有关Math函数官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html)**
 
 ```java
 Math.sin();//获取某弧度制的正弦值；
