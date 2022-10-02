@@ -84,4 +84,13 @@ System.out.print(x);
 
 [有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)
 
+### 9.有关Math函数
+
+```java
+Math.sin();//获取某弧度制的正弦值；
+Math.cos();//获取余弦值
+Math.tan();//获取正切值
+Math.toRadians();//度转换为弧度；
+Math.toDegrees();//弧度转换为度；
+Math.asin();//反三角函数；
 
