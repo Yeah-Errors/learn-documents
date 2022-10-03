@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class compute {
+public class 角度计算 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.print("请输入它的三条边：");
