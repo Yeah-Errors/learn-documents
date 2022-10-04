@@ -1,6 +1,6 @@
 # Java学习心得
 
-**[java官方开发文档](https://docs.oracle.com/javase/18)**
+**[java18官方开发文档](https://docs.oracle.com/javase/18)**
 
 ### 1. 对话框
 
@@ -99,6 +99,8 @@ Math.random();//生成0-1之间的随机数；
 ```
 
 ### 8.关于Character类
+
+**[有关Character类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html)**
 
 ```java
 Character.isDigit(ch); //如果指定的字符为数字，返回true;
