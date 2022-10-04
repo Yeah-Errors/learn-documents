@@ -69,9 +69,9 @@ System.out.print(x);
 
 **[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)**
 
-### 7.有关Math函数
+### 7.有关Math类
 
-**[有关Math函数官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html)**
+**[有关Math类官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html)**
 
 ```java
 Math.sin();//获取某弧度制的正弦值；
@@ -95,3 +95,16 @@ Math.max(a,b);//返回a，b间的最大值；
 Math.min(a,b);//返回最小值；
 Math.abs(x);//返回绝对值；
 Math.random();//生成0-1之间的随机数；
+
+### 8.关于Character类
+
+```java
+Character.isDigit(ch); //如果指定的字符为数字，返回true;
+Character.isLetter(ch); //字符为字母，返回true;
+Character.isLetterOrDigit(ch);//字符为数字或者字母，返回true;
+Character.isLowerCase(ch);//小写字母返回true;
+Character.isUpperCase(ch);//大写字母返回true;
+Character.toLowerCase(ch);//返回指定字符的小写；
+Character.toUpperCase(ch);//返回指定字符的大写；
+```
+
