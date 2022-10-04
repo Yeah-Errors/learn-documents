@@ -50,6 +50,8 @@ System.out.print(str1+str2);
 
 ### 6.有关JShell
 
+**[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)**
+
 JShell是java9引入的命令行互交式工具 可用cdm输入指令启动
 ```sh
 jshell
@@ -67,7 +69,6 @@ System.out.print(x);
 
 ```
 
-**[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)**
 
 ### 7.有关Math类
 
@@ -95,6 +96,7 @@ Math.max(a,b);//返回a，b间的最大值；
 Math.min(a,b);//返回最小值；
 Math.abs(x);//返回绝对值；
 Math.random();//生成0-1之间的随机数；
+```
 
 ### 8.关于Character类
 
