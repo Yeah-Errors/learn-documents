@@ -111,4 +111,18 @@ Character.isUpperCase(ch);//大写字母返回true;
 Character.toLowerCase(ch);//返回指定字符的小写；
 Character.toUpperCase(ch);//返回指定字符的大写；
 ```
+### 9.有关String类
+
+**[]()**
+
+```java
+String str="Hello world! ";
+int length=str.length();
+char c = str.charAt(1);//c='e'
+String str1=str.toUpperCase;//所有字符转化为大写；
+String str2=str.toLowerCase;//所有字符转化为小写；
+String str3=str1.concat(str2);//连接字符串1和2，等价于str3=str1+str2;
+String str4=str.trim();//去掉前后的空格；
+boolean b = str.equals(str2);//判断两个字符串是否相等，相等返回true;
+boolean b1 =str.equals(str2);//忽视大小写判断；
 
