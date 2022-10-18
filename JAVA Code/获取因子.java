@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class text0516 {
+public class 获取因子 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("请输入一个整数：");
@@ -11,7 +11,6 @@ public class text0516 {
                 userNum /=i;
                 i=1;
             }
-
         }
     }
 }
