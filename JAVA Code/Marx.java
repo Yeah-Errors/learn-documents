@@ -1,4 +1,4 @@
-public class Tasker {
+public class Marx {
     public static void main(String[] args) {
         int man, women, child, totalMoney = 50, totalPeople = 30 , ifAllChild = 30,i = 0;
         for(man = 0; man <= totalMoney / 3 ; man++){
