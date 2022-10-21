@@ -1,8 +1,3 @@
-/*总体思路
-先获取用户输入值；
-获取当月的天数，以及第一天的星期数；
-采用循环输出当月日期；
- */
 import java.util.Scanner;
 public class printCalender {
     static int[] c ={1,3,5,7,8,10,12};
@@ -10,6 +5,7 @@ public class printCalender {
         Scanner input = new Scanner(System.in);
         System.out.print("请输入年份（1949之后）：");
         int userYear = input.nextInt();
+        System.out.print("请输入月份：");
         int userMouth = input.nextInt();
         printMouth(userYear,userMouth);
     }
@@ -37,9 +33,6 @@ public class printCalender {
         if((i%4==0&&i%100!=0)||i%400==0) a=29;
         return a;
     }
-    /* 先计算当月总天数
-        获取当月第一天的星期数
-     */
     public static void printMouth(int year,int mouth) {
         int mouthTotalDay = 30;
         if (mouth == 2) mouthTotalDay = getFebDay(year);
@@ -63,5 +56,5 @@ public class printCalender {
             if(k> mouthTotalDay) break;
             }
         }
-    }
+ }
 
