@@ -124,5 +124,12 @@ String str2=str.toLowerCase;//所有字符转化为小写；
 String str3=str1.concat(str2);//连接字符串1和2，等价于str3=str1+str2;
 String str4=str.trim();//去掉前后的空格；
 boolean b = str.equals(str2);//判断两个字符串是否相等，相等返回true;
-boolean b1 =str.equals(str2);//忽视大小写判断；
+boolean b1 = str.equalsIgnoreCase(str2);//忽视大小写判断；
+boolean b2 = str.startsWith("H");//判断字符串是否以H开头;
+boolean b3 = str.endsWith("!");//判断字符串是否以！结尾;
+boolean b4 =str.contains("wor");//判断包含关系；
+String str1 = str.substring(2);//返回从指定位置开始到字符串结束的子串；
+String str2 =str.substring(2,8);//返回指定位置之间的子字符串；
+
+
 
