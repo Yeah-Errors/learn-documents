@@ -113,7 +113,7 @@ Character.toUpperCase(ch);//返回指定字符的大写；
 ```
 ### 9.有关String类
 
-**[]()**
+**[有关String类的官方文档](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/String.html)**
 
 ```java
 String str="Hello world! ";
@@ -130,6 +130,15 @@ boolean b3 = str.endsWith("!");//判断字符串是否以！结尾;
 boolean b4 =str.contains("wor");//判断包含关系；
 String str1 = str.substring(2);//返回从指定位置开始到字符串结束的子串；
 String str2 =str.substring(2,8);//返回指定位置之间的子字符串；
+```
+
+### 10.Java中存在抵销错误
+
+当我们处理很大的数字和一个很小的数字时，会产生抵消错误，小数可能会被忽略，因此有些题要注意计算方向，以提高精确度；
+比如计算
+1 + 1/2 + 1/3 + ... + 1/n
+时，从右向左计算会更精确一些；
+
 
 
 
