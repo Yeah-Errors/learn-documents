@@ -130,6 +130,7 @@ boolean b3 = str.endsWith("!");//判断字符串是否以！结尾;
 boolean b4 =str.contains("wor");//判断包含关系；
 String str1 = str.substring(2);//返回从指定位置开始到字符串结束的子串；
 String str2 =str.substring(2,8);//返回指定位置之间的子字符串；
+String str3 = "*".repeat(6); //jdk11引入的新String方法，其结果为str3="******";
 ```
 
 ### 10.Java中存在抵销错误
