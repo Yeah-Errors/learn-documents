@@ -140,6 +140,11 @@ String str3 = "*".repeat(6); //jdk11引入的新String方法，其结果为str3=
 1 + 1/2 + 1/3 + ... + 1/n
 时，从右向左计算会更精确一些；
 
+### 11.StringBuilder类和StringBuffer类
+
+**[有关StringBuilder类的官方文档](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/StringBuilder.html)**
+**[有关StringBuffer类的官方文档](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/StringBuffer.html)**
+
 
 
 
