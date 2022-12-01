@@ -143,7 +143,23 @@ String str3 = "*".repeat(6); //jdk11引入的新String方法，其结果为str3=
 ### 11.StringBuilder类和StringBuffer类
 
 **[有关StringBuilder类的官方文档](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/StringBuilder.html)**
+
 **[有关StringBuffer类的官方文档](https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/StringBuffer.html)**
+```java
+/*StringBuilder和StringBuffer类似于String类，区别在于String类是不可变的
+下面是一些常用的StringBuilder的用法
+*/
+StringBuilder sb = new StringBuilder;//创建一个容量为16的空字符串构建器
+StringBuilder sb1 = new StringBuilder(int capacity);//创建一个指定容量的字符串构建器；
+StrinfBuilder sb2 = new StringBuilder(String s);//创建一个指定字符串的字符串构建器；
+
+sb.append(char[] c,int offset,int len);//在构建器后面追加一个char数组,其中后两项参数可为空；
+sb.append(String s);//追加String类；
+sb.delete(int start,int end);//删除指定区域内的字符，前闭后开；
+sb.insert(int start,calss className);//在指定位置插入char数组，字符串等；
+sb.replace(int start,int end,String s);//替换指定位置的字符；
+sb.reverse();//将字符倒置；
+sb.setCharAt(int index,char c);//为指定的下标设置新的字符
 
 
 
