@@ -52,7 +52,7 @@ System.out.print(str1+str2);
 
 **[有关Jshell的官方文档](https://docs.oracle.com/en/java/javase/11/jshell)**
 
-JShell是java9引入的命令行互交式工具 可用cdm输入指令启动
+JShell是java9引入的命令行互交式工具 可用cmd输入指令启动
 ```sh
 jshell
 ```
@@ -162,3 +162,4 @@ sb.replace(int start,int end,String s);//替换指定位置的字符；
 sb.reverse();//将字符倒置；
 sb.setCharAt(int index,char c);//为指定的下标设置新的字符
 ```
+### 12.有关对象的多态与动态绑定
