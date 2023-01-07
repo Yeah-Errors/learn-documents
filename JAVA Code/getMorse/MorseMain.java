@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 /*
 -m 转化为morse码
