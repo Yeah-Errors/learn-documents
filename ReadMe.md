@@ -216,3 +216,4 @@ Printwriter暂时无法打开
   
   4.在程序执行时为更方便直接接入数据，main方法需要String[] 参数，其中参数名称是可变的不一定是args
  
+ **[一个简单的摩斯码互转程序理解main方法中的args](https://github.com/EMO-Errors/learn-documents/blob/main/JAVA%20Code/getMorse/MorseMain.java)**
