@@ -1,15 +1,15 @@
 # Java学习心得
 
-**[java18官方开发文档](https://docs.oracle.com/javase/18)**
+**[java11官方开发文档](https://docs.oracle.com/javase/11)**
 
 ~~### 1. 对话框
+
 ```java
 import javax.swing.JOptionPane;//使用前需声明；
 JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
 JOptionPane.showMessageDialog(null,String,Title,int);//消息对话框；
 showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；
 ``` 
-~~
 
  ### 2.for 循环内声明的变量循环外不可用！！
  ```java
@@ -194,6 +194,7 @@ files.mkdir();//创建相关目录，创建成功返回true
 files.delete();//删除相关目录
 files.length();//返回文件的大小
 files.listFile();//返回目录下的所有文件，返回类型为File[]
+```
 
 ###文件的输入与输出
 
