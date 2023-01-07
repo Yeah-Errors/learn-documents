@@ -2,8 +2,7 @@
 
 **[java18官方开发文档](https://docs.oracle.com/javase/18)**
 
-~~ ### 1. 对话框
-
+~~### 1. 对话框
 ```java
 import javax.swing.JOptionPane;//使用前需声明；
 JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
@@ -201,7 +200,7 @@ files.listFile();//返回目录下的所有文件，返回类型为File[]
 可用Scanner从文件中读取数据
 用PrintWriter向文件写入数据
 
-** [有关Scanner类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html) **
+**[有关Scanner类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html)**
 Printwriter暂时无法打开
 
 ### 14.有关main方法
@@ -209,7 +208,10 @@ Printwriter暂时无法打开
  public static void main(String[] args){}
  ```
   1.由于其为程序的入口，在jvm中运行时会首先调用main方法所以其必须是public
+  
   2.关键字static可以不用通过创建一个类的实例，而是直接通过类名直接去访问一个方法，main方法定义为static，则对于虚拟机来说，在程序启动之后并不需要创建一个实例，也就可以去调用这个main方法，所以必须使用static修饰
+  
   3.由于main方法是通过java虚拟机调用的，虚拟机无需返回值，所以main方法的返回值定义为void
+  
   4.在程序执行时为更方便直接接入数据，main方法需要String[] 参数，其中参数名称是可变的不一定是args
  
