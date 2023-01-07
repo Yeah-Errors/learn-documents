@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;//使用前需声明；
 JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
 JOptionPane.showMessageDialog(null,String,Title,int);//消息对话框；
 showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；
-``` ~~
+``` 
+~~
 
  ### 2.for 循环内声明的变量循环外不可用！！
  ```java
