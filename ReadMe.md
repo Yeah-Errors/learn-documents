@@ -2,14 +2,15 @@
 
 **[java18官方开发文档](https://docs.oracle.com/javase/18)**
 
-### 1. 对话框
+~~ ### 1. 对话框
 
 ```java
 import javax.swing.JOptionPane;//使用前需声明；
 JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
 JOptionPane.showMessageDialog(null,String,Title,int);//消息对话框；
 showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；
-```
+``` ~~
+
  ### 2.for 循环内声明的变量循环外不可用！！
  ```java
  int c=0;
@@ -162,4 +163,52 @@ sb.replace(int start,int end,String s);//替换指定位置的字符；
 sb.reverse();//将字符倒置；
 sb.setCharAt(int index,char c);//为指定的下标设置新的字符
 ```
-### 12.有关对象的多态与动态绑定
+### 12.多态与动态绑定
+### 13.异常处理文本IO
+
+####java Exception
+```java
+try{
+code 1;
+}catch(Exception name){
+code 2;
+}
+finally{
+code 3;
+}
+//代码1有异常会执行代码2
+//代码3内容无论是否有异常，都会被执行；
+//可用throw语句抛出一个异常 抛出异常时需在方法后面声明throws Exception
+//可以自定义自己的异常通过让其继承Exception来定义此异常
+```
+#####有关File类
+
+该类包含了获取文件目录属性的一些方法，也可以删除，重命名操作等；
+**[有关File类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)**
+```java
+File files = new File(String path);//为指定的路径创建
+files.exists(); //判断files所代表的目录是否存在，若存在返回true
+files.canRead();
+files.canWrite();//判断files所代表的文件是否可读，可写，
+files.mkdir();//创建相关目录，创建成功返回true
+files.delete();//删除相关目录
+files.length();//返回文件的大小
+files.listFile();//返回目录下的所有文件，返回类型为File[]
+
+###文件的输入与输出
+
+可用Scanner从文件中读取数据
+用PrintWriter向文件写入数据
+
+** [有关Scanner类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html) **
+Printwriter暂时无法打开
+
+### 14.有关main方法
+ ```java
+ public static void main(String[] args){}
+ ```
+  1.由于其为程序的入口，在jvm中运行时会首先调用main方法所以其必须是public
+  2.关键字static可以不用通过创建一个类的实例，而是直接通过类名直接去访问一个方法，main方法定义为static，则对于虚拟机来说，在程序启动之后并不需要创建一个实例，也就可以去调用这个main方法，所以必须使用static修饰
+  3.由于main方法是通过java虚拟机调用的，虚拟机无需返回值，所以main方法的返回值定义为void
+  4.在程序执行时为更方便直接接入数据，main方法需要String[] 参数，其中参数名称是可变的不一定是args
+ 
