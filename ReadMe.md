@@ -2,7 +2,7 @@
 
 **[java11官方开发文档](https://docs.oracle.com/javase/11)**
 
-~~### 1. 对话框
+~~ ### 1. 对话框 ~~
 
 ```java
 import javax.swing.JOptionPane;//使用前需声明；
