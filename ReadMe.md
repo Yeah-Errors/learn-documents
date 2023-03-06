@@ -166,7 +166,7 @@ sb.setCharAt(int index,char c);//为指定的下标设置新的字符
 ### 12.多态与动态绑定
 ### 13.异常处理文本IO
 
-####java Exception
+#### java Exception
 ```java
 try{
 code 1;
@@ -181,7 +181,7 @@ code 3;
 //可用throw语句抛出一个异常 抛出异常时需在方法后面声明throws Exception
 //可以自定义自己的异常通过让其继承Exception来定义此异常
 ```
-#####有关File类
+##### 有关File类
 
 该类包含了获取文件目录属性的一些方法，也可以删除，重命名操作等；
 **[有关File类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)**
@@ -196,7 +196,7 @@ files.length();//返回文件的大小
 files.listFile();//返回目录下的所有文件，返回类型为File[]
 ```
 
-###文件的输入与输出
+### 文件的输入与输出
 
 可用Scanner从文件中读取数据
 用PrintWriter向文件写入数据
