@@ -2,7 +2,7 @@
 
 **[java11官方开发文档](https://docs.oracle.com/javase/11)**
 
-~~ ### 1. 对话框 ~~
+ ### 1. 对话框 
 
 ```java
 import javax.swing.JOptionPane;//使用前需声明；
@@ -217,3 +217,75 @@ Printwriter暂时无法打开
   4.在程序执行时为更方便直接接入数据，main方法需要String[] 参数，其中参数名称是可变的不一定是args
  
  **[一个简单的摩斯码互转程序理解main方法中的args](https://github.com/EMO-Errors/learn-documents/blob/main/JAVA%20Code/getMorse/MorseMain.java)**
+ 
+### 15.泛型
+
+##### ·优点
+
+​	在编译时而不是在运行时检测出错误
+
+
+
+​	例如如下两个代码块：
+
+```java	
+Comparable c = new Date();
+System.out.println(c.compareTo("red"));
+```
+
+
+
+  该语句在编译时可正常通过，但运行时会提示:
+
+ <font color ="red" > java.lang.ClassCastException:  java.lang.String cannot be cast to java.util.Date</font>
+
+
+
+```java 
+Comparable<Date> c = new Date();
+System.out.println(c.compareTo("red"));
+```
+
+
+
+如上代码，当时用泛型时在我们编译的时候就会提示 
+
+<font color="red">java: 不兼容的类型: java.lang.String无法转换为java.util.Date</font>
+
+所以使用泛型类型会更加可靠
+
+
+
+##### ·定义泛型类与方法
+
+定以一个泛型类时可直接在类名后添加 <E> 当有多个参数传入时可添加<A,B,C>
+
+例如
+
+```java
+public class GenericStack<E>{}
+public class MoreValue<A,B,C>{}
+```
+
+ tips:可以定义一个类或接口为一个泛型类或接口的子类型如String类的定义为
+
+```java
+public class String implements Comparable<String>{...}
+```
+
+ 声明泛型方法时，应将泛型类型置于关键字 ``static`` 之后 如：
+
+```java
+public static <E> void printInformatioin(E e){...}
+```
+
+调用时可采取如下两种方式：
+
+```java
+ClassName.<Student>printInformation(Students);
+printInformation(Students);
+```
+
+
+
+
