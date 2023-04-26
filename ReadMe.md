@@ -286,6 +286,92 @@ ClassName.<Student>printInformation(Students);
 printInformation(Students);
 ```
 
+#### ·通配泛型 ####
 
+常见三种形式 ``<?>``, ``<? extends T>`` ,``<? super T>``
+
+``<?>`` 称为非受限通配，与``<? extends Object>``结果一样
+
+``<? extends T>`` 称为受限通配，表示的为T或其子类型
+
+``<? super T>`` 称为下限通配，表示T或其父类型
+
+
+
+#### ·泛型的擦除和限制
+
+泛型是通过使用类型擦除的方法来实现的，在进行编译时会通过类型信息去进行编译，随后又会将之擦除，所以泛型信息在运行时是不可用的.
+
+比如：
+
+```java
+ArrayList<String> list = new ArrayList<>();
+list.add("泛型");
+String str = list.get(0);
+```
+
+编译器在编译如上代码时会先检测泛型是否被正确使用，然后会将它转化为如下的等价代码
+
+```java
+ArrayList list = new ArrayList();
+list.add("泛型");
+String str = (String)(list.get(0));
+```
+
+当对泛型类，接口，方法进行编译时，会用``Object``类型进行替代，如果泛型为受限的，那将用该受限类型来替代例如：
+
+```java
+public static <E> void print(E[] list){
+    for(int i = 0;i < list.length; i++){
+        System.out.print(list[i]);
+    }
+}
+
+public static <E extends Person> int getAge(E person){
+    return person.age;
+}
+```
+
+上述代码会被编译器替换为
+
+```java
+public static void print(Object[] list){
+    for(int i = 0;i < list.length; i++){
+        System.out.print(list[i]);
+    }
+}
+
+public static int getAge(Person person){
+    return person.age;
+}
+```
+
+
+
+由于其具有可擦除性，所以其也会有所限制：
+
+1.不能使用 ``new E()``或``new E[]``
+
+可以使用如下代码进行替代
+
+```java
+E[] obj = (E[])new Object[]; 
+```
+
+2.在静态上下文中不允许参数是泛型的
+
+所以一下代码是非法的
+
+```java
+public class Test<E>{
+    public static void m(E o){}//非法
+    public static E o1;//非法
+    static{
+        E o2;
+    }//非法
+}
+```
+
+3.异常类不能为泛型的
 
 
