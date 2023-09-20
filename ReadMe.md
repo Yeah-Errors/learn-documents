@@ -377,3 +377,191 @@ public class Test<E>{
 
 ### 16.数据类型
 **[一个使用栈的算数计算器](https://github.com/Yeah-Errors/learn-documents/blob/main/JAVA%20Code/Computer/Computer.java)**
+
+#### 原码剖析
+
+##### HashSet&&HashMap
+
+###### 1.HashSet底层原理实际调用HashMap
+
+```java
+	public HashSet() {
+      	map = new HashMap<>();
+	}
+
+ 	public boolean add(E e) {
+        return map.put(e, PRESENT)==null;
+    }
+```
+
+##### 2.add方法
+
+```java
+transient Node<K,V>[] table; //用于存放节点的数组 Node[];
+static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;//设置默认初始化大小 1<<4=16;
+static final float DEFAULT_LOAD_FACTOR = 0.75f;//设置一个加载因子为0.75，当储存数量大于加载因子与容量时，会进行扩容操作，可以更好防止阻塞
+static final int MAXIMUM_CAPACITY = 1 << 30;//设置默认的最大数组值为2的30次方；
+
+final Node<K,V>[] resize() {
+        //储存table相关数据，内容，大小，阈值等
+    	Node<K,V>[] oldTab = table;
+  		int oldCap = (oldTab == null) ? 0 : oldTab.length;
+        int oldThr = threshold;
+    
+        int newCap, newThr = 0;
+    
+        if (oldCap > 0) {
+            //判断就数组的大小是否大于默认最大值，如果大于等于则仅将临界值设置为int最大值
+            if (oldCap >= MAXIMUM_CAPACITY) {
+                threshold = Integer.MAX_VALUE;
+                return oldTab;
+            }
+            //判断数组旧的大小的2倍小于默认最大值且不是第一次扩容（及其尺寸大于等于16）时将新尺寸设为原尺寸的2倍
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+                     oldCap >= DEFAULT_INITIAL_CAPACITY)
+                newThr = oldThr << 1; // double threshold
+        }
+    	//其他的如果旧尺寸为0，但其临界值大于0，则将新尺寸设为临界值，此情况一搬出现在使用含参数的HashMap构造中
+        else if (oldThr > 0) // initial capacity was placed in threshold
+            newCap = oldThr;
+       
+    //当其临界值也为0时，则设置新尺寸为默认尺寸16，新临界值为默认临界值16.0.75=12；
+    	else {               
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+        }
+    	
+        if (newThr == 0) {
+            float ft = (float)newCap * loadFactor;
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                      (int)ft : Integer.MAX_VALUE);
+        }
+    	//用更新后的大小以及临界值重新创建新的table表
+        threshold = newThr;
+        @SuppressWarnings({"rawtypes","unchecked"})
+        Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+        table = newTab;
+    	//判断就表是否为空，若为空则直接返回一个新的空表，如果不为空，将旧数据复制至新表，这里其索引位置也会重新进行计算
+        if (oldTab != null) {
+            for (int j = 0; j < oldCap; ++j) {
+                Node<K,V> e;
+                if ((e = oldTab[j]) != null) {
+                    oldTab[j] = null;
+                    if (e.next == null)
+                        newTab[e.hash & (newCap - 1)] = e;
+                    else if (e instanceof TreeNode)
+                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
+                    else { // preserve order
+                        Node<K,V> loHead = null, loTail = null;
+                        Node<K,V> hiHead = null, hiTail = null;
+                        Node<K,V> next;
+                        do {
+                            next = e.next;
+                            if ((e.hash & oldCap) == 0) {
+                                if (loTail == null)
+                                    loHead = e;
+                                else
+                                    loTail.next = e;
+                                loTail = e;
+                            }
+                            else {
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+        }
+        return newTab;
+    }
+
+
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+    	 //1.定义辅助变量
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+      
+    	//如果table为空执行resize，resize后大小为16;
+    	if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+    
+    	//通过计算key的hash值，判断应该存储在table表的哪个索引位置；&为逻辑与运算，对于每个位，只有两个操作数的对应位都为1时结果才为1，其存储位置为 table表的长度&hash值，这确保了其不会产生越界异常；；最后计算所在位置若为空，对该位置进行直接存储Node(hash,key,value,null),null指该node的下一个next为空
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            
+            /*再此位置其使用了newNode方法去创建节点有以下好处（chatgpt）：
+            这个设计决策是出于一种代码优化和可读性的考虑。尽管newNode方法最终返回new Node<>(hash, key, value, next);，但这种间接的方式可以让代码更加灵活和易于理解。以下是一些原因：
+			代码一致性：putVal方法使用newNode方法来创建节点，这样可以保持代码的一致性。在HashMap的源代码中，可能有多个地方需要创建节点，使用统一的方法可以减少代码的重复，降低出错的概率。
+			未来的扩展性：如果以后需要对节点的创建逻辑进行更改，只需修改newNode方法而不需要修改所有使用new Node(hash, key, value, null)的地方。这种封装可以使未来的维护工作更加容易。
+			可读性：通过使用newNode方法，可以将节点创建的细节隐藏在一个方法内部，使putVal方法的代码更加清晰和易读。这有助于其他开发人员更容易理解和维护代码。
+*/
+            tab[i] = newNode(hash, key, value, null);
+    //如果该索引位置，已存有元素，则分情况进行新一步操作
+        else {
+            
+            Node<K,V> e; K k;
+            //判断索引位置的hash值以及内容是否与所要存储的元素相同，若相同不进行存储,并将其赋值给e,用于后期判断输出
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            //判断该索引处是否为红黑树类型
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            //其他的对该索引下元素进行遍历比较
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    //判断当前元素下一个元素是否为空，若为空则将新元素储存在下一位
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        //判断其是否到达红黑树条件，及该链表长度是否>=7，若符合，则进行红黑树操作（在此步操作过程中需要满足当前表的大小为64
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    //判断索要存储元素是否与当前索引下一位元素hash值以及内容相同，若相同直接结束存储操作
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    //将索引更新到下一位
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+    	//操作次数+1
+        ++modCount;
+    
+    	//如果尺寸大于临界值，扩容
+        if (++size > threshold)
+            resize();
+    
+        afterNodeInsertion(evict);
+    
+        return null;
+    }
+```
+
+##### 3.LinkedHashSet
+
+`public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, java.io.Serializable `
+
+可看出其底层为HashSet -> HashMap， 其底层维护LinkedHashMap(为HashMap的子类),但其内部使用双向链表，所以其有序
+
+在第一次添加时，会将table(其类型为HashMap$Node[])扩容到的16，存放点节点类型为LinkedHashMap$Entry(其为HashMap$Node[]的子类)
