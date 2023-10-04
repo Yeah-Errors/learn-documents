@@ -202,7 +202,7 @@ files.listFile();//返回目录下的所有文件，返回类型为File[]
 用PrintWriter向文件写入数据
 
 **[有关Scanner类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html)**
-Printwriter暂时无法打开
+**[有关PrintWrite类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintWriter.html)**
 
 ### 14.有关main方法
  ```java
