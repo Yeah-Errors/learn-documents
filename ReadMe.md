@@ -46,9 +46,9 @@ System.out.print(str1+str2);
 | ++ var | 前置自增 |  将var加1，语句中使用新的var值  | int j = ++i;  // j为2，i为2 |
 | var ++ | 后置自增 | 将var加1，语句中使用原来的var值 | int  j = i++; //j为1 ，i为2 |
 
-思考：'i = i++' 与 'i = ++i' 结果，并说明原因？
-i = i++ 的结果i仍为原值
-i = ++i 的结果i比原来大一
+思考：`i = i++`与`i = ++i`结果，并说明原因？
+`i = i++`的结果i仍为原值
+`i = ++i`的结果i比原来大一
 
 从JVM层进行分析
 如下所示代码:
@@ -58,20 +58,20 @@ i = i++;
 int a = 45;
 a = ++a;
 ```
-其通过 ['javap -c source.class'](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javap.html#BEHHDJGA) 可得其反汇编代码为
+其通过 [`javap -c source.class`](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javap.html#BEHHDJGA) 可得其反汇编代码为
 
 ```assembly
-0: bipush        6  	将6进栈
-2: istore_0		将栈顶元素（即6）存入存储到局部变量表的0处（var0）
-3: iload_0		将局部变量表中位置0的整数值（即var0）推送到栈顶
-4: iinc          0, 1	将局部变量表中位置0的整数值（即var0）增加1。var0=7
-7: istore_0		弹出栈顶数值存储到局部变量表的位置0（仍是var0）var0 = 6
+0: bipush        6  	//将6进栈
+2: istore_0		//将栈顶元素（即6）存入存储到局部变量表的0处（var0）
+3: iload_0		//将局部变量表中位置0的整数值（即var0）推送到栈顶
+4: iinc          0, 1	//将局部变量表中位置0的整数值（即var0）增加1。var0=7
+7: istore_0		//弹出栈顶数值存储到局部变量表的位置0（仍是var0）var0 = 6
 
-8: bipush        45	同理将45入栈
-10: istore_1		存储到局部变量1处（var1）
-11: iinc         1, 1  	将局部变量表中位置1的整数值（即var1）增加1。var1=46
-14: iload_1		将局部变量表中位置1的整数值（即var1）推送到栈顶
-15: istore_1		弹出栈顶数值存储到局部变量表的位置1（仍是var）var1 = 46
+8: bipush        45	//同理将45入栈
+10: istore_1		//存储到局部变量1处（var1）
+11: iinc         1, 1  	//将局部变量表中位置1的整数值（即var1）增加1。var1=46
+14: iload_1		//将局部变量表中位置1的整数值（即var1）推送到栈顶
+15: istore_1		//弹出栈顶数值存储到局部变量表的位置1（仍是var）var1 = 46
 16: return
 ```
  
