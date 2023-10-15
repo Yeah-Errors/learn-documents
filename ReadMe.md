@@ -2,14 +2,16 @@
 
 **[java11官方开发文档](https://docs.oracle.com/javase/11)**
 
- ### 1. 对话框 
+~~### 1. 对话框~~
 
-```java
-import javax.swing.JOptionPane;//使用前需声明；
-JOptionPane.showInputDialog(null,String,Title,int);//输入对话框；
+JAVAFx为Java GUI的新框架，也是学习面相对象编程的优秀工具，用于开发富GUI应用，融入了现代GUI技术，并为触摸设备提供多点触控支持，并且更易学与使用，在JDK11之后[JavaFX](https://openjfx.io/)也成为了单独的模块
+
+~~```java~~
+~~import javax.swing.JOptionPane;//使用前需声明
+JOptionPane.showInputDialog(null,String,Title,int);//输入对话框
 JOptionPane.showMessageDialog(null,String,Title,int);//消息对话框；
-showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；
-``` 
+showConfirmDialog(Component parentComponent,Object message,String title,int optionType,int messageType, Icon icon);//选择对话框；~~
+~~```~~
 
  ### 2.for 循环内声明的变量循环外不可用！！
  ```java
