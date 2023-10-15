@@ -193,7 +193,7 @@ sb.reverse();//将字符倒置；
 sb.setCharAt(int index,char c);//为指定的下标设置新的字符
 ```
 ### 12.多态与动态绑定
-### 13.异常处理文本IO
+### 13.异常处理
 
 #### java Exception
 ```java
@@ -210,28 +210,6 @@ code 3;
 //可用throw语句抛出一个异常 抛出异常时需在方法后面声明throws Exception
 //可以自定义自己的异常通过让其继承Exception来定义此异常
 ```
-##### 有关File类
-
-该类包含了获取文件目录属性的一些方法，也可以删除，重命名操作等；
-**[有关File类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)**
-```java
-File files = new File(String path);//为指定的路径创建
-files.exists(); //判断files所代表的目录是否存在，若存在返回true
-files.canRead();
-files.canWrite();//判断files所代表的文件是否可读，可写，
-files.mkdir();//创建相关目录，创建成功返回true
-files.delete();//删除相关目录
-files.length();//返回文件的大小
-files.listFile();//返回目录下的所有文件，返回类型为File[]
-```
-
-### 文件的输入与输出
-
-可用Scanner从文件中读取数据
-用PrintWriter向文件写入数据
-
-**[有关Scanner类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html)**
-**[有关PrintWrite类的官方文档](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintWriter.html)**
 
 ### 14.有关main方法
  ```java
